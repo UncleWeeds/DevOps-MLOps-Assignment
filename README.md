@@ -193,7 +193,7 @@ Update the image in rollout.yaml:
       
            - name: task-scheduler
       
-             image: uweeds/task-scheduler:v2 (I have already placed it in v2 to check it out, if you want to try you can remove the v2 and try the uweeds/task-scheduler:latest to check if the rollout is working or not)
+             image: uweeds/task-scheduler:v2 (At present the image being used here is uweeds/task-scheduler:latest, if you want to try you can remove the latest and try the uweeds/task-scheduler:v2 to check if the rollout is working or not)
 
 
 3. Commit and Push Changes
