@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: task-scheduler
-        image: uweeds/task-scheduler:latest
+        image: uweeds/task-scheduler:v2
         ports:
         - containerPort: 5000
   strategy:
