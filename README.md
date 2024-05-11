@@ -240,6 +240,30 @@ Use the plugin to watch the rollout:
 
 `kubectl delete namespace argo-rollouts`
 
+6. Delete Remaining ReplicaSets and Pods
+
+Ensure all remaining ReplicaSets and pods are forcefully deleted:
+
+  Delete ReplicaSets:
+
+  `kubectl delete replicaset -l app=task-scheduler --force --grace-period=0`
+
+  Delete Pods:
+
+  `kubectl delete pods -l app=task-scheduler --force --grace-period=0`
+
+7. Final Verification
+
+Confirm that all resources have been deleted:
+
+  Check Remaining Resources:
+
+ `kubectl get all -l app=task-scheduler`
+
+ Check Remaining Namespaces:
+
+ `kubectl get namespaces`
+
 
 
 
