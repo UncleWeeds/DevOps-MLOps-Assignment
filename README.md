@@ -171,7 +171,7 @@ Observe Argo CD UI:
 
 ### Step 10: Trigger a Rollout
 
-1. Update Application and Build New Docker Image ( I already did this so no need to do this part, I image has already been pushed to Docker hub)
+1. Update Application and Build New Docker Image ( I already did this so no need to do this part, the docker image has already been pushed to Docker hub)
 
 Make necessary changes, build, and push a new Docker image:
 
