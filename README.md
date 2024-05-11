@@ -92,7 +92,7 @@ After setting up Docker and building your image, the next step is to deploy the 
 
   `kubectl apply -f scheduler.yaml`
 
-  `kubectl port-forward svc/task-scheduler-service 5000:5000` ( This command forwards port 5000 of the task-scheduler-service service to port 5000 on your localhost. You can now access the Task Scheduler application by navigating to http://localhost:5000 in your web browser.)
+  `kubectl port-forward svc/task-scheduler-service 5000:5000` ( This command forwards port 5000 of the task-scheduler-service service to port 5000 on your localhost. You can now access the Task Scheduler application at port 5000.)
 
 
   ### Step 6: Configure Argo CD
