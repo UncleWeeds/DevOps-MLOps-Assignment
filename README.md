@@ -137,9 +137,31 @@ Ensure that Argo CD has synchronized the application:
 
 2. Access the Application
 
-Verify the application is running by forwarding the service port:
+Check out the Argo CD running in localhost:8080 and check if it is showing the current cluster.
 
-`kubectl port-forward svc/task-scheduler-service 5000:5000`
+3. Test Automated Deployment:
+
+    Make a Change in scheduler.yaml:
+   
+   For example, update the replicas count:
+
+        spec:
+           replicas: 2  # Change from 1 to 2
+
+Commit and Push the Change:
+
+`git add scheduler.yaml`
+
+`git commit -m "Updated replicas count to 2"`
+
+`git push origin main`
+
+Observe Argo CD UI:
+
+    Watch for the application to detect the change and automatically sync.
+    
+    You should see the number of pods increase according to the updated replica count.
+
 
 ## Task 3: Implementing a Canary Release with Argo Rollouts
 
