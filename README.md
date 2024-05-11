@@ -288,20 +288,75 @@ Confirm that all resources have been deleted:
 
 
 
+## Challenges and Resolutions
 
+1. Argo CD Not Syncing Changes
 
+Issue:
 
+Argo CD was not detecting changes in the Git repository, leading to delays in deployment updates.
 
+Resolution:
 
+    Action Taken:
+        Verified and updated the argo-application.yaml configuration.
+        
+        Ensured the path in the argo-application.yaml correctly pointed to the kubernetes directory.
+        
+        Applied the updated Argo CD application manifest:
 
+            `kubectl apply -f argo-application.yaml`
 
+Outcome:
 
+    Argo CD successfully detected and synchronized changes from the Git repository.
 
+2. Rollout Stuck in Progressing State
 
+Issue:
 
+The rollout was stuck in a progressing state with messages indicating that more replicas needed to be updated.
 
+Resolution:
 
+    Action Taken:
+    
+        Checked the rollout configuration and ensured the replicas field matched the desired state.
+        
+        Verified node and resource availability to ensure sufficient capacity.
+        
+        Monitored the rollout using:
 
+                `kubectl argo rollouts get rollout task-scheduler-rollout --watch`
+                 
+        Inspected pod events and logs to identify any underlying issue
+
+        Manually scaled the deployment to ensure pods were running correctly
+
+Outcome:
+
+  Identified and resolved issues with resource constraints and node readiness, allowing the rollout to progress and complete successfully.        
+
+3. Node Resource Constraints
+
+Issue:
+The Minikube node had insufficient resources, causing pod scheduling issues.
+
+Resolution:
+
+    Action Taken:
+    
+        Increased the CPU and memory allocation for Minikube:
+
+               minikube stop
+               
+               minikube start --cpus 4 --memory 8192
+
+        Re-deployed the application and monitored resource usage.
+
+Outcome:
+
+  Adequate resources were allocated, resolving scheduling issues and stabilizing the deployment.
 
 
 
